@@ -30,13 +30,27 @@ for (int i = int.Parse(Console.ReadLine()); i <= 101; i++ ){
     }
 }*/
 
+double biggest = 0;
+double smallest = 0;
 int Antal;
 double summa = 0, input;
-Console.Write("Enter the amunt of number that you want: ");
-Antal = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter the amunt of numbers that you want: ");
+Antal = int.Parse(Console.ReadLine());
 for (int i = 1; i <= Antal; i++) {
     Console.Write("Enter the number " + i + ": ");
-    input = Convert.ToDouble(Console.ReadLine());
+    input = double.Parse(Console.ReadLine());
     summa = summa + input;
+    if (i == 1){
+        biggest = input;
+        smallest = input;
+    }
+    
+    if (smallest >= input) {
+        smallest = input;
+    } else if (biggest <= input) {
+        biggest = input;
+    }
 }
-Console.Write("");
+Console.WriteLine("The average value is: " + (summa / Antal));
+Console.WriteLine("The biggest value was: " + biggest);
+Console.WriteLine("The smallest value was: " + smallest);
